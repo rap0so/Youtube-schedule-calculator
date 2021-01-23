@@ -4,7 +4,7 @@ import { TGetHeadersReturn } from '../types';
 
 const getHeaders = (): TGetHeadersReturn[] =>
   weekdays.map((weekDay) => ({
-    align: 'center',
+    align: 'justify',
     text: capitalizeFirstLetter(weekDay as string),
     value: weekDay,
   }));

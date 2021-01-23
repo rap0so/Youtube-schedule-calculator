@@ -1,3 +1,5 @@
+import { FormEvent } from 'react';
+
 export type TWeekDays =
   | 'sunday'
   | 'monday'
@@ -6,3 +8,7 @@ export type TWeekDays =
   | 'thursday'
   | 'friday'
   | 'saturday';
+
+export type TBlurInputEvent = {
+  event: FormEvent<HTMLInputElement>;
+};
