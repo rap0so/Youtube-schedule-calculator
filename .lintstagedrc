@@ -1,0 +1,4 @@
+{
+    "*.ts?(x)": "yarn lint",
+    "*": "yarn test"
+}
