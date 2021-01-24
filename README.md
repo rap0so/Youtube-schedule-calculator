@@ -13,11 +13,19 @@
 yarn install
 ```
 
+## Create your credential
+
+To use this app you should have google credentials to request videos.  
+[Doc here](https://developers.google.com/youtube/registering_an_application?hl=pt_br#create_project)
 ## Configure keys
 
 ```sh
 cp .env.example .env.local
 nano .env.local
+
+# paste your key in front of
+
+GOOGLE_KEY_API=
 ```
 
 ## Usage
@@ -71,7 +79,6 @@ yarn lint:fix
 
 ## Build with
 
-// CONTINUE: FROM HERE
 - [cra](https://create-react-app.dev) - Most common boilerplate to start react
   projects
 - [theme-ui](https://theme-ui.com/) - Design systems based on constraint-based design principles
@@ -85,6 +92,8 @@ built with Styled System
 ## TODO
 
 - [] Add storybook
+- [] Loop API request to get 200 videos instead 50
+- [] Add [loglevel remote](https://github.com/kutuluk/loglevel-plugin-remote) to track application
 
 ## Author
 

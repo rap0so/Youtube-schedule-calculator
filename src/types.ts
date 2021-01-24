@@ -12,3 +12,14 @@ export type TWeekDays =
 export type TBlurInputEvent = {
   event: FormEvent<HTMLInputElement>;
 };
+
+export type TVideoData = {
+  id: {
+    kind: string;
+    videoId: string;
+  };
+  description: string;
+  duration: number;
+  title: string;
+  thumbnail: string;
+};

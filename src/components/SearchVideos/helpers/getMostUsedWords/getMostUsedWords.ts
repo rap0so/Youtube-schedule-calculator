@@ -1,11 +1,16 @@
 import { NON_WORD_NON_SPACE_REGEX } from 'constants/regex/nonWordNonSpace';
+import { TVideoData } from 'types';
+
+import commonConjunctions from './commonConjunctions';
 import { TMappedRepeatedWordsAccumulator, TOrderDesc } from './types';
 
 const orderDesc: TOrderDesc = ([, currentValue], [, nextValue]) =>
   nextValue - currentValue;
 
-const getMostUsedWords = (phrase: string) => {
-  const mapperRepeatedWords = phrase
+const getMostUsedWords = (videos: TVideoData[], quantity = 5) => {
+  const mapperRepeatedWords = videos
+    .reduce((text, video) => `${text} ${video.title} ${video.duration}`, '')
+    .toLowerCase()
     .replace(NON_WORD_NON_SPACE_REGEX, '')
     .split(' ')
     .reduce((acc: TMappedRepeatedWordsAccumulator, cur) => {
@@ -20,7 +25,8 @@ const getMostUsedWords = (phrase: string) => {
   return validWords
     .sort(orderDesc)
     .map(([key]) => key)
-    .slice(0, 5);
+    .filter((word) => !commonConjunctions.includes(word))
+    .slice(0, quantity);
 };
 
 export default getMostUsedWords;

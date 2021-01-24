@@ -21,6 +21,7 @@ const theme: Theme = {
         minHeight: '100vh',
       },
       '*': {
+        color: 'text',
         transition: 'all .2s ease',
       },
       fontFamily: 'default',

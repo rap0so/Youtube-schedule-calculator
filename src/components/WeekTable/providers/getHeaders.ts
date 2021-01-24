@@ -1,4 +1,4 @@
-import weekdays from 'constants/days/weekdays';
+import weekdays from 'constants/time/weekdays';
 import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
 import { TGetHeadersReturn } from '../types';
 
