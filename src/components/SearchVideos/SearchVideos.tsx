@@ -16,9 +16,10 @@ import getMostUsedWords from './helpers/getMostUsedWords';
 import removeVideosLongerThanWeekMinute from './helpers/removeVideosLongerThanWeekMinute';
 
 const SearchVideos = ({
+  minutes,
   setAmountDays,
   setMostUsedWords,
-  minutes,
+  setVideos,
 }: TSearchVideosProps) => {
   const inputTermRef = useRef(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -37,6 +38,7 @@ const SearchVideos = ({
       return;
     }
     const videos = await getDataByIds(ids);
+    setVideos(videos);
 
     const duration = extractDuration(videos);
     const allowedDuration = removeVideosLongerThanWeekMinute(duration, minutes);
@@ -49,7 +51,7 @@ const SearchVideos = ({
     setMostUsedWords(mostUsedWords);
 
     setIsLoading(false);
-  }, [minutes, searchTerm, setAmountDays, setMostUsedWords]);
+  }, [minutes, searchTerm, setAmountDays, setMostUsedWords, setVideos]);
 
   const onClickToSearch = () => {
     const typedValue = get(inputTermRef, 'current.input.props.value');
