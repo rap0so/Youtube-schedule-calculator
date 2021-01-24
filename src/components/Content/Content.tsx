@@ -5,17 +5,18 @@ import { Box, Flex, Text } from 'rebass';
 
 import WeekTable from '../WeekTable';
 import SearchVideos from '../SearchVideos';
+import MostUsedWords from 'components/MostUsedWords';
 
 const Content = () => {
   const [amountDays, setAmountDays] = useState<number>();
-  const [mostUsedWords, setMostUsedWords] = useState<string[]>();
+  const [mostUsedWords, setMostUsedWords] = useState<string[]>([]);
 
   const [
     minutesOnWeek,
     setMinutesOnWeek,
   ] = useReducer<TMinutesOnWeekUseReducer>((oldState, newState) => {
     setAmountDays(undefined);
-    setMostUsedWords(undefined);
+    setMostUsedWords([]);
 
     return {
       ...oldState,
@@ -36,7 +37,7 @@ const Content = () => {
     [minutesOnWeek],
   );
 
-  const hasMostUsedWords = mostUsedWords?.length;
+  const hasMostUsedWords = !!mostUsedWords.length;
 
   return (
     <Flex flexDirection="column">
@@ -75,7 +76,14 @@ const Content = () => {
       )}
 
       {hasMostUsedWords && (
-        <Box>{/* <MostUsedWords words={mostUsedWords} /> */}</Box>
+        <Box mt="5">
+          <Text fontWeight="bold" textAlign="left">
+            Top 5 words of results:
+          </Text>
+          <Box mt="3" pl="3">
+            <MostUsedWords words={mostUsedWords} />
+          </Box>
+        </Box>
       )}
     </Flex>
   );
