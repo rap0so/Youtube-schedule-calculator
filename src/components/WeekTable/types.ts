@@ -1,5 +1,5 @@
-import { TextArea } from 'ui-neumorphism';
-import { FormEvent, Reducer } from 'react';
+import { TextField } from 'ui-neumorphism';
+import { Reducer } from 'react';
 import { TWeekDays } from 'types';
 
 export type TDayOfWeek = Record<TWeekDays, number>;
@@ -21,14 +21,10 @@ export type TGetHeadersReturn = {
   value: TWeekDays;
 };
 
-export type TSetRef = (index: number) => (ref: TextArea) => TextArea;
+export type TSetRef = (index: number) => (ref: TextField) => TextField;
 
 export type TGetItemsProps = {
   headers: TGetHeadersReturn[];
   setRef: TSetRef;
   setDataTable: TWeekTableProps['setDataTable'];
-};
-
-export type TBlurDataTableEvent = {
-  event: FormEvent<HTMLTextAreaElement>;
 };

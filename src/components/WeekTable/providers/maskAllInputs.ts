@@ -1,8 +1,10 @@
 import { FOUR_NUMBERS_ONLY_REGEX } from 'constants/regex/numbersOnly';
 import InputMask from 'inputmask';
 
-const maskAllTextAreas = () => {
-  const allInputs = document.querySelectorAll('textarea');
+const maskAllInputs = () => {
+  const allInputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(
+    '.bind-mask input',
+  );
 
   allInputs.forEach((input) =>
     new InputMask({
@@ -12,4 +14,4 @@ const maskAllTextAreas = () => {
   );
 };
 
-export default maskAllTextAreas;
+export default maskAllInputs;

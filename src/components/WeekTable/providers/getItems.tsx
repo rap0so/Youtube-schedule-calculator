@@ -1,13 +1,17 @@
-import { TextArea } from 'ui-neumorphism';
+import { TextField } from 'ui-neumorphism';
 import get from 'lodash.get';
-import { TBlurDataTableEvent, TGetItemsProps } from '../types';
-import { TWeekDays } from 'types';
+import { TGetItemsProps } from '../types';
+import { TBlurInputEvent, TWeekDays } from 'types';
 
 const getItems = ({ headers, setRef, setDataTable }: TGetItemsProps) => {
   const handleSetDataTable = (weekDay: TWeekDays) => ({
     event,
-  }: TBlurDataTableEvent) => {
-    const typedValue = get(event, 'currentTarget.value', '0');
+  }: TBlurInputEvent) => {
+    const typedValue = get(event, 'currentTarget.value');
+
+    if (!typedValue) {
+      return;
+    }
 
     const valueToNumber = Number(typedValue);
 
@@ -20,13 +24,15 @@ const getItems = ({ headers, setRef, setDataTable }: TGetItemsProps) => {
     (acc, weekDay, index) => ({
       ...acc,
       [weekDay.value]: (
-        <TextArea
-          autoExpand={true}
+        <TextField
+          style={{ margin: 0 }}
+          className="bind-mask"
           onBlur={handleSetDataTable(weekDay.value)}
           ref={setRef(index)}
           width={80}
         />
       ),
+      align: 'right',
     }),
     {},
   );
