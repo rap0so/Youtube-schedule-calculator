@@ -6,9 +6,12 @@ import { Box, Flex, Text } from 'rebass';
 import WeekTable from '../WeekTable';
 import SearchVideos from '../SearchVideos';
 import MostUsedWords from 'components/MostUsedWords';
+import { TVideoData } from 'types';
+import Videos from 'components/Videos';
 
 const Content = () => {
   const [amountDays, setAmountDays] = useState<number>();
+  const [videos, setVideos] = useState<TVideoData[]>([]);
   const [mostUsedWords, setMostUsedWords] = useState<string[]>([]);
 
   const [
@@ -38,6 +41,7 @@ const Content = () => {
   );
 
   const hasMostUsedWords = !!mostUsedWords.length;
+  const hasVideos = !!videos.length;
 
   return (
     <Flex flexDirection="column">
@@ -62,6 +66,7 @@ const Content = () => {
           <SearchVideos
             setAmountDays={setAmountDays}
             setMostUsedWords={setMostUsedWords}
+            setVideos={setVideos}
             minutes={minutes}
           />
         </Box>
@@ -83,6 +88,12 @@ const Content = () => {
           <Box mt="3" pl="3">
             <MostUsedWords words={mostUsedWords} />
           </Box>
+        </Box>
+      )}
+
+      {hasVideos && (
+        <Box mt="4">
+          <Videos videos={videos} />
         </Box>
       )}
     </Flex>

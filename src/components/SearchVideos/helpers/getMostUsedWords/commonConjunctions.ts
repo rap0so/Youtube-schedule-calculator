@@ -24,6 +24,10 @@ const commonConjunctions = [
   'unless',
   'now',
   'except',
+  'the',
+  'to',
+  'with',
+  'are',
 ];
 
 export default commonConjunctions;
