@@ -26,6 +26,7 @@ const getMostUsedWords = (videos: TVideoData[], quantity = 5) => {
     .sort(orderDesc)
     .map(([key]) => key)
     .filter((word) => !commonConjunctions.includes(word))
+    .filter((word) => word.length > 1)
     .slice(0, quantity);
 };
 

@@ -10,7 +10,7 @@ const Videos = ({ videos }: TVideos) => {
         const shortDescription = description.slice(0, 100);
 
         return (
-          <Box flex="1 0 30%" key={videoUrl} m="2">
+          <Box data-test="video-box" flex="1 0 30%" key={videoUrl} m="2">
             <a href={videoUrl} rel="noreferrer" target="_blank">
               <Card style={{ height: '100%' }}>
                 <CardMedia src={thumbnail} />

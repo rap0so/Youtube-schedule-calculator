@@ -1,4 +1,3 @@
 {
-    "*.ts?(x)": "yarn lint",
-    "*": "yarn test"
+  "**/!(__mocks__)/*.ts?(x)": "yarn lint"
 }

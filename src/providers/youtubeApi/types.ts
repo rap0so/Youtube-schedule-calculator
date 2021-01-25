@@ -30,4 +30,6 @@ type TYoutubeApiResponse = {
 export type TYoutubeApi = (
   type: 'search' | 'videos',
   config: AxiosRequestConfig,
-) => Promise<AxiosResponse<TYoutubeApiResponse>>;
+) => TYoutubeApiReturn;
+
+export type TYoutubeApiReturn = Promise<AxiosResponse<TYoutubeApiResponse>>;

@@ -42,6 +42,7 @@ const Content = () => {
 
   const hasMostUsedWords = !!mostUsedWords.length;
   const hasVideos = !!videos.length;
+  const amountDaysWasModified = amountDays !== undefined;
 
   return (
     <Flex flexDirection="column">
@@ -72,10 +73,10 @@ const Content = () => {
         </Box>
       )}
 
-      {amountDays && (
+      {amountDaysWasModified && (
         <Box>
           <Text textAlign="center">
-            You will spend {amountDays} days to watch
+            You will spend {amountDays ?? 1} days to watch
           </Text>
         </Box>
       )}

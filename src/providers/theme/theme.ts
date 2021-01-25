@@ -24,6 +24,9 @@ const theme: Theme = {
         color: 'text',
         transition: 'all .2s ease',
       },
+      '.Toastify__toast-body, Toastify__toast-body': {
+        color: '#fff',
+      },
       fontFamily: 'default',
       fontWeight: 'default',
       minHeight: '100vh',

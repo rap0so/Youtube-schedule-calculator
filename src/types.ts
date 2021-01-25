@@ -1,3 +1,4 @@
+import { TYoutubeApi } from 'providers/youtubeApi/types';
 import { FormEvent } from 'react';
 
 export type TWeekDays =
@@ -23,3 +24,5 @@ export type TVideoData = {
   title: string;
   thumbnail: string;
 };
+
+export type TYoutubeApiMockedFunction = jest.MockedFunction<TYoutubeApi>;
