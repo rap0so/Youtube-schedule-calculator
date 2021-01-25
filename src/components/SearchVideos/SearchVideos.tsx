@@ -1,10 +1,11 @@
-import get from 'lodash.get';
+import { mdiMagnify } from '@mdi/js';
+import Icon from '@mdi/react';
 import debounce from 'lodash.debounce';
+import get from 'lodash.get';
+import { IconButton, TextField } from 'ui-neumorphism';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Box, Flex } from 'rebass';
-import { IconButton, TextField } from 'ui-neumorphism';
-import Icon from '@mdi/react';
-import { mdiMagnify } from '@mdi/js';
+import { toast } from 'react-toastify';
 
 import { ONE_SECOND } from 'constants/time/oneSecond';
 import { getIdsByTerm, getDataByIds } from 'services/youtube';
@@ -34,9 +35,10 @@ const SearchVideos = ({
     const ids = await getIdsByTerm(searchTerm);
 
     if (!ids.length) {
-      // SUGESTION: toast error
+      toast.error('No video found, try again later');
       return;
     }
+
     const videos = await getDataByIds(ids);
     setVideos(videos);
 
@@ -75,6 +77,7 @@ const SearchVideos = ({
           loading={isLoading}
           ref={inputTermRef}
           style={{ margin: 0 }}
+          placeholder="Type your term here"
         />
 
         <Box ml="2" mt="2px">

@@ -3,8 +3,10 @@ const commonConjunctions = [
   'that',
   'but',
   'or',
+  'of',
   'as',
   'if',
+  'in',
   'when',
   'than',
   'because',
@@ -28,6 +30,7 @@ const commonConjunctions = [
   'to',
   'with',
   'are',
+  'on',
 ];
 
 export default commonConjunctions;

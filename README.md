@@ -94,10 +94,12 @@ built with Styled System
 - [] Add storybook
 - [] Loop API request to get 200 videos instead 50
 - [] Add [loglevel remote](https://github.com/kutuluk/loglevel-plugin-remote) to track application
-- [] Create pull request template
+- [x] Create pull request template
 - [] Add E2e tests
-- [] Add Integration tests
+- [x] Add Integration tests
 - [] Add Unit tests
+- [] Increase coverage of all tests
+
 
 ## Author
 

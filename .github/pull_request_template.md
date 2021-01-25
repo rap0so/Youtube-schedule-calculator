@@ -36,8 +36,9 @@ Please describe the tests that you ran to verify your changes.
 
 ## Comparision:
 
+### Before:
+<!-- Image here showing how it is after changes -->
+
 ### After:
 <!-- Image here showing how it was before changes -->
 
-### Before:
-<!-- Image here showing how it is after changes -->
