@@ -74,6 +74,7 @@ const SearchVideos = ({
     <Flex flexDirection="column">
       <Flex justifyContent="center">
         <TextField
+          data-test="search-input"
           loading={isLoading}
           ref={inputTermRef}
           style={{ margin: 0 }}
